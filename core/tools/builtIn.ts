@@ -9,3 +9,5 @@ export enum BuiltInToolNames {
   SearchWeb = "builtin_search_web",
   ViewDiff = "builtin_view_diff",
 }
+
+export default BuiltInToolNames;
