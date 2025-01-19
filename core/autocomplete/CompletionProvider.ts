@@ -198,6 +198,8 @@ export class CompletionProvider {
         const multiline =
           !helper.options.transform || shouldCompleteMultiline(helper);
 
+        console.debug(`[Completion] Start completion prompt: "${prompt}", prefix: "${prefix}", suffix: "${suffix}"`);
+
         const completionStream =
           this.completionStreamer.streamCompletionWithFilters(
             token,
@@ -213,6 +215,8 @@ export class CompletionProvider {
         for await (const update of completionStream) {
           completion += update;
         }
+        
+        console.debug(`[Completion] End completion: "${completion}"`);
 
         // Don't postprocess if aborted
         if (token.aborted) {
